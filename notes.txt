@@ -5,3 +5,9 @@ server folder -- backend code for data (unsure what I will use for this yet LOL)
 CSS, SCSS, or tailwind???
 
 11/22/25 -- committing anyways even though nothing was done becuase freaking windows doesn't want to work guhhhhh
+
+Upon determining what we will do for styling, remember to assign class names for the objects that will be hidden on click [likely will vary per page]
+
+Figure out what tool can be used to generate links for each confession.....and how that can even be viewed when clicking the view button...
+
+What am I getting into 🤓
