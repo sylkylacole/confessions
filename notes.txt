@@ -3,3 +3,5 @@ server folder -- backend code for data (unsure what I will use for this yet LOL)
 
 
 CSS, SCSS, or tailwind???
+
+11/22/25 -- committing anyways even though nothing was done becuase freaking windows doesn't want to work guhhhhh
