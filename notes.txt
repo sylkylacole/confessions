@@ -11,3 +11,10 @@ Upon determining what we will do for styling, remember to assign class names for
 Figure out what tool can be used to generate links for each confession.....and how that can even be viewed when clicking the view button...
 
 What am I getting into 🤓
+
+Basically, what SCSS does is you can write separate styling files, and then combine them all into a single css files
+
+Categories:
+- positioning
+- animation
+- colors
