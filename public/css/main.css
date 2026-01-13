@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  width: 100vw;
+  height: 50px;
+}
+nav ul {
+  float: right;
+  margin: 10px 25px 10px 100px;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  text-decoration: none;
+  list-style-type: none;
+  margin-left: 25px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+main #main-img {
+  margin-top: 100px;
+  margin-bottom: 15px;
+}
+main .title {
+  font-size: 75px;
+  margin-top: 0;
+}
+main .home-text {
+  width: 100ch;
+  font-size: 15pt;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+main .buttons {
+  display: inline-block;
+  margin: 40px 0;
+}
+main .buttons #confess-button-1 {
+  margin-right: 15px;
+}
+main .confessing {
+  display: none;
+}
+main .button-1 {
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  font-size: 12pt;
+}
+main .button-2 {
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  font-size: 12pt;
+}
+main .button-1, main .button-2:hover {
+  cursor: pointer;
+}
+main #view-button {
+  display: none;
+}
+
+/*# sourceMappingURL=main.css.map */
