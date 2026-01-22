@@ -2,3 +2,22 @@ $main: #985F99;
 $background:    #FCEDFF;
 $accent: #E4CDEA;
 $text: #302738;
+
+body {
+  background-color: $background;
+  color: $text;
+
+  button,
+  a button,
+  .buttons button {
+    background-color: $main;
+
+    &:hover {
+      background-color: $accent;
+    }
+  }
+
+  #confession {
+    border: 2px solid $main;
+  }
+}

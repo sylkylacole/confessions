@@ -28,3 +28,11 @@ confessButton.addEventListener("click", () => {
   });
   console.log("Confess button clicked");
 });
+
+
+const textarea = document.getElementById("confession");
+
+textarea.addEventListener("input", () => {
+  textarea.style.height = "auto";              // reset height
+  textarea.style.height = textarea.scrollHeight + "px"; // grow
+});
