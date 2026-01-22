@@ -5,6 +5,7 @@
 }
 
 nav {
+  display: inline-block;
   width: 100vw;
   height: 50px;
 }
@@ -44,13 +45,10 @@ main .home-text {
 }
 main .buttons {
   display: inline-block;
-  margin: 40px 0;
+  margin: 10px 0;
 }
 main .buttons #confess-button-1 {
   margin-right: 15px;
-}
-main .confessing {
-  display: none;
 }
 main .button-1 {
   width: 150px;
@@ -69,7 +67,7 @@ main .button-2 {
 main .button-1, main .button-2:hover {
   cursor: pointer;
 }
-main #view-button {
+main .hidden {
   display: none;
 }
 

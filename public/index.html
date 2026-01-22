@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confessions</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
             <button type="button" class="button-1" id="confess-button-1">Confess</button> <!-- Hide on click and change to attach button below -->
             <a href="browse.html" class="button-link" id="browse-button-1"><button type="button" class="button-1">Browse</button></a> <!-- Hides when "confess" is clicked -->
         </div>
-        <div class="confessing"> <!-- When confess button is clicked, HTML title Confessions changes to Confess & the buttons above hide, whilst this div reveals -->
+        <div class="confessing hidden"> <!-- When confess button is clicked, HTML title Confessions changes to Confess & the buttons above hide, whilst this div reveals -->
             <form>
                 <!-- <label for="confession"></label> I DON'T WANT A LABEL -->
                 <input id="confession" type="text" required>
@@ -34,7 +34,7 @@
                 <button type="submit" class="button-2">Confess</button>   
             </form>
         </div>
-        <a href=""><button class="button-2" id="view-button">View</button></a> <!-- Link will be generated.....somehow...-->
+        <a href=""><button class="button-2 hidden" id="view-button">View</button></a> <!-- Link will be generated.....somehow...-->
     </main>
 </body>
 </html>
