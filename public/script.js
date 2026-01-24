@@ -48,3 +48,5 @@ form.onsubmit = function (e) {
     return;
   };
 };
+
+/* Create event for when confession is submitted, it hides the confess button and shows the view and browse button */
