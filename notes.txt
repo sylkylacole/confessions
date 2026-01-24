@@ -18,3 +18,5 @@ Categories:
 - positioning
 - animation
 - colors
+
+Implement RESTAPI for backend (potentially; do some research -- https://restfulapi.net/)
