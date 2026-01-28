@@ -46,7 +46,8 @@ form.onsubmit = function (e) {
     e.preventDefault();
     alert("Confession is too short. Suspicious.");
     return;
+  } 
+/* Create event for when confession is submitted, it hides the confess button and shows the view and browse button */ else {
+      console.log("Confession submitted.");
   };
 };
-
-/* Create event for when confession is submitted, it hides the confess button and shows the view and browse button */
