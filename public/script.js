@@ -60,5 +60,6 @@ form.onsubmit = function (e) {
         el.classList.remove("hidden");
       });
       console.log("Confession submitted.");
+      window.alert("Confession submitted successfully!");
   };
 };

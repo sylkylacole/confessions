@@ -33,6 +33,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 5%;
 
     #main-img {
         margin-top: 50px;
@@ -127,8 +128,32 @@ main {
 
 .confessions {
     display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    margin-top: 5%;
+    row-gap: 100px;
+    // width: 100vw;
+    overflow: hidden;
 }
 
 .browse-confession {
     display: flex;
+    column-gap: 20px;
+    align-items: center;
+    gap: 300px;
+}
+
+.browse-confession:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.36);
+} /* animate to slowly fade in from the middle*/
+
+#browse-text {
+    font-size: 15pt;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.like-toggle:hover {
+    cursor: pointer;
 }
