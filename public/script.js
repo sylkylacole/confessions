@@ -1,4 +1,4 @@
-console.log("Connected");
+// console.log("Connected");
 
 // Import everything via id & classes
 
@@ -35,19 +35,30 @@ const form = document.querySelector("#confession-form");
 
 form.onsubmit = function (e) {
   const text = textarea.value.trim();
+  e.preventDefault();
 
   if (text === "") {
-    e.preventDefault();
     alert("Empty confessions not allowed.");
     return;
   };
 
-  if (text.length < 100) {
-    e.preventDefault();
+  if (text.length < 50) {
     alert("Confession is too short. Suspicious.");
     return;
   } 
 /* Create event for when confession is submitted, it hides the confess button and shows the view and browse button */ else {
+      document.querySelectorAll(".confessing").forEach(el => {
+        el.classList.add("hidden");
+      });
+      document.querySelectorAll(".buttons").forEach(el => {
+        el.classList.remove("hidden");
+      });
+      document.querySelectorAll("#confess-button-1").forEach(el => {
+        el.classList.add("hidden");
+      });
+      document.querySelectorAll("#view-button").forEach(el => {
+        el.classList.remove("hidden");
+      });
       console.log("Confession submitted.");
   };
 };
