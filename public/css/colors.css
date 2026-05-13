@@ -1,0 +1,15 @@
+body {
+  background-color: #FCEDFF;
+  color: #302738; }
+  body button,
+  body a button,
+  body .buttons button {
+    background-color: #985F99; }
+    body button:hover,
+    body a button:hover,
+    body .buttons button:hover {
+      background-color: #E4CDEA; }
+  body #confession {
+    border: 2px solid #985F99; }
+
+/*# sourceMappingURL=colors.css.map */
