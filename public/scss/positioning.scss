@@ -141,19 +141,51 @@ main {
     column-gap: 20px;
     align-items: center;
     gap: 300px;
-}
 
-.browse-confession:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.36);
-} /* animate to slowly fade in from the middle*/
+    .browse-confession:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.36);
+    } /* animate to slowly fade in from the middle*/
 
-#browse-text {
-    font-size: 15pt;
-    text-align: center;
-    margin-top: 30px;
+    #browse-text {
+        font-size: 15pt;
+        text-align: center;
+        margin-top: 30px;
+    }
 }
 
 .like-toggle:hover {
     cursor: pointer;
+}
+
+/* CONTACT */
+
+#contact-main {
+    all: unset;
+    display: flex;
+    margin: 100px;
+    gap: 300px;
+    
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h1, h3 {
+            text-align: center;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #left {
+        float: left;
+    }
+
+    #right {
+        float: right;
+    }
 }

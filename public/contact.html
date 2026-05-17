@@ -8,16 +8,59 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <a href="index.html"><img src="https://placehold.co/75" alt="logo"></a>
     <nav>
+        <a href="index.html"><img src="https://placehold.co/75" alt="logo"></a>
         <ul>
             <li><a href="browse.html">Browse</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <main>
-        <h1>Contact</h1>
-        <h1>Report</h1>
+    <main id="contact-main">
+        <div class="section" id="left">
+            <h1>Contact</h1>
+            <h3>Fill out the form below to contact us about updates, suggestions, bugs, or anything OTHER THAN REPORTS that need to be addressed!</h3>
+            <form id="contact-form" action="" method="post">
+                <label for="contact-alias" class="form-label">What should we address you as?</label>
+                <input type="text" id="contact-alias" name="contact-alias">
+
+                <label for="contact-reason" id="contact-reason-id" class="form-label">What are you wanting to inquire about?</label>
+                <select id="contact-reason" class="form-select" required>
+                    <option value="default">Select</option>
+                    <option value="update">Update suggestion</option>
+                    <option value="general">General suggestion</option>
+                    <option value="bug">Bug report</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="contact-detail" id="contact-detail-id">Please provide additional details.</label>
+                <input type="text" id="contact-detail" name="contact-detail" required>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <!-- <div class="vl"></div> -->
+        <div class="section" id="left">
+            <h1>Report</h1>
+            <h3>Fill out the form below to report any confessions posted on the website. NOTE THAT THIS IS MANUALLY MONITORED BY ONE PERSON, SO IT WILL TAKE TIME TO GET THINGS HANDLED!</h3>
+            <form id="report-form" action="" method="post">
+                <label for="confess-num" class="form-label">Which confession are you reporting?</label>
+                <input type="text" name="confession-report" id="confess-num" required maxlength="4">
+
+                <label for="report-reason-select" id="report-reason-label" class="form-label">What rule does it violate?</label>
+                <select id="report-reason-select" class="form-select name="report-reason-select required>
+                    <option value="default">Select</option>
+                    <option value="explicit/gore">Explicit/Gore</option>
+                    <option value="doxxing">Doxxing</option>
+                    <option value="illegal">Illegal</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="report-detail" id="report-detail-report-reason-label" class="form-label">Please provide additional information that will be helpful in analyzing the report.</label>
+                <input type="text" name="report-detail" id="report-detail" required>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>
