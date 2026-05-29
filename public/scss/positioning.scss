@@ -144,7 +144,6 @@ main {
 
     .browse-confession:hover {
         cursor: pointer;
-        background-color: rgba(0, 0, 0, 0.36);
     } /* animate to slowly fade in from the middle*/
 
     #browse-text {
@@ -179,6 +178,35 @@ main {
     form {
         display: flex;
         flex-direction: column;
+
+        label {
+            margin-top: 30px;
+        }
+
+        label, select, input {
+            margin-bottom: 15px;
+        }
+
+        button[type="submit"] {
+            margin: 25px 0;
+            width: 100px;
+            height: 25px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 150px;
+            border-radius: 10px;
+        }
+
+        select {
+            width: 150px;
+        }
+
+        .form-detail {
+            width: 300px;
+            overflow-wrap: break-word;
+        }
     }
 
     #left {
@@ -188,4 +216,5 @@ main {
     #right {
         float: right;
     }
+    
 }

@@ -2,6 +2,9 @@ body {
   background-color: #FCEDFF;
   color: #302738;
 }
+body .browse-confession .browse-confession:hover {
+  background-color: rgba(0, 0, 0, 0.36);
+}
 body button,
 body a button,
 body .buttons button {
@@ -133,7 +136,6 @@ main input[type=file] {
 }
 .browse-confession .browse-confession:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.36);
 }
 .browse-confession {
   /* animate to slowly fade in from the middle*/
@@ -166,6 +168,29 @@ main input[type=file] {
 #contact-main form {
   display: flex;
   flex-direction: column;
+}
+#contact-main form label {
+  margin-top: 30px;
+}
+#contact-main form label, #contact-main form select, #contact-main form input {
+  margin-bottom: 15px;
+}
+#contact-main form button[type=submit] {
+  margin: 25px 0;
+  width: 100px;
+  height: 25px;
+  border-radius: 10px;
+}
+#contact-main form input {
+  width: 150px;
+  border-radius: 10px;
+}
+#contact-main form select {
+  width: 150px;
+}
+#contact-main form .form-detail {
+  width: 300px;
+  overflow-wrap: break-word;
 }
 #contact-main #left {
   float: left;
