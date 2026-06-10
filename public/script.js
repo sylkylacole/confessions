@@ -63,3 +63,10 @@ form.onsubmit = function (e) {
       window.alert("Confession submitted successfully!");
   };
 };
+
+// Create like button toggle
+const likeButton = document.getElementsByClassName("like-toggle");
+
+likeButton.addEventListener("click", () => {
+  console.log("Toggled")
+});
