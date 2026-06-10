@@ -6,6 +6,11 @@ $text: #302738;
 body {
   background-color: $background;
   color: $text;
+  @font-face {
+    font-family: "Chewy";
+    src: url(/public/font/Chewy-Regular.ttf);
+  }
+  font-family: Chewy, sans-serif;
 
   .browse-confession {
     .browse-confession:hover {
