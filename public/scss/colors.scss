@@ -12,6 +12,18 @@ body {
   }
   font-family: Chewy, sans-serif;
 
+  .nav-link {
+    color: $main;
+
+    .nav-link:hover {
+      color: $accent;
+    }
+
+    .nav-link:visited {
+      color: $text;
+    }
+  }
+
   .browse-confession {
     .browse-confession:hover {
       background-color: rgba(0, 0, 0, 0.36);
@@ -23,7 +35,7 @@ body {
   .buttons button {
     background-color: $main;
 
-    &:hover {
+    a:hover {
       background-color: $accent;
     }
   }

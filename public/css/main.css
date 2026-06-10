@@ -9,6 +9,15 @@ body {
 body {
   font-family: Chewy, sans-serif;
 }
+body .nav-link {
+  color: #985F99;
+}
+body .nav-link .nav-link:hover {
+  color: #E4CDEA;
+}
+body .nav-link .nav-link:visited {
+  color: #302738;
+}
 body .browse-confession .browse-confession:hover {
   background-color: rgba(0, 0, 0, 0.36);
 }
@@ -17,9 +26,9 @@ body a button,
 body .buttons button {
   background-color: #985F99;
 }
-body button:hover,
-body a button:hover,
-body .buttons button:hover {
+body button a:hover,
+body a button a:hover,
+body .buttons button a:hover {
   background-color: #E4CDEA;
 }
 body #confession {
