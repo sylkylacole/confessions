@@ -219,6 +219,18 @@ main {
             width: 300px;
             overflow-wrap: break-word;
         }
+
+        .radio-div {
+            display: inline-block;
+        }
+
+        input[type="radio"] {
+            width: 10px;
+        }
+
+        label {
+            margin-right: 25px;
+        }
     }
 
     #left {
