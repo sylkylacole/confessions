@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confessions</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="images/confessions-logo.png">
 </head>
@@ -19,49 +19,8 @@
     <main class="container">
         <h1 class="title">Browse</h1>
         <p id="browse-text">Looking for something to laugh or cry to? Want to kill some time? Look through other confessions and wish you never found this website.</p>
-        <section class="confessions">
-            <div class="browse-confession" id="confession-1">
-                <img src="https://placehold.co/150x150" alt="pfp/logo (if not provided)" class="browse-confess-pic">
-                <h3 class="browse-id-number">#1</h3>
-                <p class="browse-confession-text">Confession. I recently discovered that...</p>
-                <p class="like-toggle" id="like1">♡ likes</p>
-            </div>
-            <div class="browse-confession" id="confession-2">
-                <img src="https://placehold.co/150x150" alt="pfp/logo (if not provided)" class="browse-confess-pic">
-                <h3 class="browse-id-number">#2</h3>
-                <p class="browse-confession-text">Confession. I recently discovered that...</p>
-                <p class="like-toggle" id="like2">♡ likes</p>
-            </div>
-            <div class="browse-confession" id="confession-3">
-                <img src="https://placehold.co/150x150" alt="pfp/logo (if not provided)" class="browse-confess-pic">
-                <h3 class="browse-id-number">#3</h3>
-                <p class="browse-confession-text">Confession. I recently discovered that...</p>
-                <p class="like-toggle" id="like3">♡ likes</p>
-            </div>
-            <div class="browse-confession" id="confession-4">
-                <img src="https://placehold.co/150x150" alt="pfp/logo (if not provided)" class="browse-confess-pic">
-                <h3 class="browse-id-number">#4</h3>
-                <p class="browse-confession-text">Confession. I recently discovered that...</p>
-                <p class="like-toggle" id="like4">♡ likes</p>
-            </div>
-            <div class="browse-confession" id="confession-5">
-                <img src="https://placehold.co/150x150" alt="pfp/logo (if not provided)" class="browse-confess-pic">
-                <h3 class="browse-id-number">#5</h3>
-                <p class="browse-confession-text">Confession. I recently discovered that...</p>
-                <p class="like-toggle" id="like5">♥︎ likes</p>
-            </div>
-            <div class="browse-confession" id="confession-6">
-                <img src="https://placehold.co/150x150" alt="pfp/logo (if not provided)" class="browse-confess-pic">
-                <h3 class="browse-id-number">#6</h3>
-                <p class="browse-confession-text">Confession. I recently discovered that...</p>
-                <p class="like-toggle" id="like6">♡ likes</p>
-            </div>
-            <div class="browse-confession" id="confession-7">
-                <img src="https://placehold.co/150x150" alt="pfp/logo (if not provided)" class="browse-confess-pic">
-                <h3 class="browse-id-number">#7</h3>
-                <p class="browse-confession-text">Confession. I recently discovered that...</p>
-                <p class="like-toggle" id="like7">♥︎ likes</p>
-            </div>
+        <section class="confessions" id="confessions-list">
+            <p class="loading-message">Loading confessions...</p>
         </section>
     </main>
     <!-- Consider adding a back to top button sometime -->

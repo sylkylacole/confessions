@@ -1,72 +1,138 @@
-// console.log("Connected");
-
-// Import everything via id & classes
+// Shared client script for index.html and browse.html
 
 const confessButton = document.getElementById("confess-button-1");
-const buttonsClass = document.getElementsByClassName("buttons");
-const confessingClass = document.getElementsByClassName("confessing");
-const confessionSubmit = document.getElementById("confess-submit");
-
-// Build function to hide buttons class and display confessing class & add event listener to confessButton
-
-
-confessButton.addEventListener("click", () => {
-  document.querySelectorAll(".buttons").forEach(el => {
-    el.classList.add("hidden");
-  });
-  document.querySelectorAll(".confessing").forEach(el => {
-    el.classList.remove("hidden");
-  });
-  console.log("Confess button clicked");
-});
-
-
+const confessionForm = document.querySelector("#confession-form");
 const textarea = document.getElementById("confession");
+const fileInput = document.getElementById("confession-attachment");
+const viewButton = document.getElementById("view-button");
+const confessionsList = document.getElementById("confessions-list");
 
-textarea.addEventListener("input", () => {
-  textarea.style.height = "auto";
-  textarea.style.height = textarea.scrollHeight + "px";
-});
+function toggleConfessForm(show) {
+  document.querySelectorAll(".buttons").forEach((el) => {
+    el.classList.toggle("hidden", show);
+  });
+  document.querySelectorAll(".confessing").forEach((el) => {
+    el.classList.toggle("hidden", !show);
+  });
+}
 
+if (confessButton) {
+  confessButton.addEventListener("click", () => {
+    toggleConfessForm(true);
+  });
+}
 
-// Add event listener for submitting form
+if (textarea) {
+  textarea.addEventListener("input", () => {
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  });
+}
 
-const form = document.querySelector("#confession-form");
+async function submitConfession(message, imageFile) {
+  const formData = new FormData();
+  formData.append("message", message);
+  if (imageFile) {
+    formData.append("image", imageFile);
+  }
 
-form.onsubmit = function (e) {
-  const text = textarea.value.trim();
-  e.preventDefault();
+  const response = await fetch("/api/confessions", {
+    method: "POST",
+    body: formData,
+  });
 
-  if (text === "") {
-    alert("Empty confessions not allowed.");
-    return;
-  };
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || "Failed to submit confession.");
+  }
 
-  if (text.length < 50) {
-    alert("Confession is too short. Suspicious.");
-    return;
-  } 
-/* Create event for when confession is submitted, it hides the confess button and shows the view and browse button */ else {
-      document.querySelectorAll(".confessing").forEach(el => {
-        el.classList.add("hidden");
-      });
-      document.querySelectorAll(".buttons").forEach(el => {
-        el.classList.remove("hidden");
-      });
-      document.querySelectorAll("#confess-button-1").forEach(el => {
-        el.classList.add("hidden");
-      });
-      document.querySelectorAll("#view-button").forEach(el => {
-        el.classList.remove("hidden");
-      });
-      console.log("Confession submitted.");
-      window.alert("Confession submitted successfully!");
-  };
-};
+  return response.json();
+}
 
-// Create like button toggle
-const likeButton = document.getElementsByClassName("like-toggle");
+if (confessionForm) {
+  confessionForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-likeButton.addEventListener("click", () => {
-  console.log("Toggled")
-});
+    const message = textarea.value.trim();
+    const imageFile = fileInput.files[0];
+
+    if (!message) {
+      return alert("Please enter your confession before submitting.");
+    }
+    if (message.length < 10) {
+      return alert("Confession must be at least 10 characters.");
+    }
+
+    try {
+      const result = await submitConfession(message, imageFile);
+      console.log("Confession submitted:", result);
+      alert("Confession submitted successfully!");
+      toggleConfessForm(false);
+      textarea.value = "";
+      if (fileInput) {
+        fileInput.value = "";
+      }
+      if (viewButton) {
+        viewButton.classList.remove("hidden");
+      }
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
+  });
+}
+
+function renderConfession(confession, index) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "browse-confession";
+
+  const image = document.createElement("img");
+  image.className = "browse-confess-pic";
+  image.alt = "Confession image";
+  image.src = confession.image_url || "https://placehold.co/150x150";
+  wrapper.appendChild(image);
+
+  const heading = document.createElement("h3");
+  heading.className = "browse-id-number";
+  heading.textContent = `#${index + 1}`;
+  wrapper.appendChild(heading);
+
+  const text = document.createElement("p");
+  text.className = "browse-confession-text";
+  text.textContent = confession.message;
+  wrapper.appendChild(text);
+
+  const dateLabel = document.createElement("p");
+  dateLabel.className = "confession-date";
+  dateLabel.textContent = new Date(confession.created_at).toLocaleString();
+  wrapper.appendChild(dateLabel);
+
+  return wrapper;
+}
+
+async function loadConfessions() {
+  if (!confessionsList) return;
+
+  try {
+    const response = await fetch("/api/confessions");
+    const items = await response.json();
+
+    confessionsList.innerHTML = "";
+
+    if (!items.length) {
+      confessionsList.innerHTML = "<p>No confessions posted yet.</p>";
+      return;
+    }
+
+    items.forEach((item, index) => {
+      confessionsList.appendChild(renderConfession(item, index));
+    });
+  } catch (error) {
+    console.error(error);
+    confessionsList.innerHTML = "<p>Failed to load confessions. Please refresh.</p>";
+  }
+}
+
+if (confessionsList) {
+  loadConfessions();
+}
