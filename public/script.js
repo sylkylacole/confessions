@@ -89,7 +89,7 @@ function renderConfession(confession, index) {
   const image = document.createElement("img");
   image.className = "browse-confess-pic";
   image.alt = "Confession image";
-  image.src = confession.image_url || "https://placehold.co/150x150";
+  image.src = confession.confessImg || "https://placehold.co/150x150";
   wrapper.appendChild(image);
 
   const heading = document.createElement("h3");

@@ -44,14 +44,23 @@ async function initDb() {
   await connection.end();
 
   const pool = mysql.createPool(dbConfig);
-  await pool.query(`
-    CREATE TABLE IF NOT EXISTS confessions (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      message TEXT NOT NULL,
-      image_url VARCHAR(255),
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-  `);
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS submissions (
+        confessID INT AUTO_INCREMENT PRIMARY KEY,
+        confessText LONGTEXT NOT NULL,
+        confessImg VARCHAR(255),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    // If an older `confessions` table exists with data, don't drop it; optionally migrate later.
+    // Ensure the `submissions` table has the expected columns when upgrading an existing DB
+    try {
+      await pool.query("ALTER TABLE submissions ADD COLUMN confessImg VARCHAR(255) NULL;");
+    } catch (err) {
+      if (err && err.errno && err.errno !== 1060) {
+        throw err;
+      }
+    }
   return pool;
 }
 
@@ -73,16 +82,16 @@ app.post("/api/confessions", upload.single("image"), async (req, res) => {
       return res.status(400).json({ error: "Message is required and must be at least 10 characters." });
     }
 
-    const image_url = req.file ? `/uploads/${req.file.filename}` : null;
-    const [result] = await pool.query(
-      "INSERT INTO confessions (message, image_url) VALUES (?, ?)",
-      [message, image_url]
-    );
+      const confessImg = req.file ? `/uploads/${req.file.filename}` : null;
+      const [result] = await pool.query(
+        "INSERT INTO submissions (confessText, confessImg) VALUES (?, ?)",
+        [message, confessImg]
+      );
 
     res.status(201).json({
       id: result.insertId,
       message,
-      image_url,
+      confessImg,
     });
   } catch (error) {
     console.error(error);
@@ -92,9 +101,10 @@ app.post("/api/confessions", upload.single("image"), async (req, res) => {
 
 app.get("/api/confessions", async (req, res) => {
   try {
-    const [rows] = await pool.query(
-      "SELECT id, message, image_url, created_at FROM confessions ORDER BY created_at DESC LIMIT 50"
-    );
+      const [rows] = await pool.query(
+        "SELECT confessID AS id, confessText AS message, confessImg, created_at FROM submissions ORDER BY created_at DESC LIMIT 50"
+      );
+    // rows already have {id, message, confessImg, created_at}
     res.json(rows);
   } catch (error) {
     console.error(error);
